@@ -9,17 +9,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, WebView, Button} from 'react-native';
 import {CometChat} from '@cometchat-pro/chat';
-import {decode,encode}from 'base-64';
 
-if (!global.btoa) global.btoa = encode;
-if (!global.atob)global.atob = decode;
 
-this.DOMParser = require('xmldom').DOMParser;
+const USER_NAME = 'jstestuser1';
 
-  
-
-const AppId = '1089f54cd9e81d',
-  USER_NAME = 'jstestuser1', ApiKey = '2eec670353db7ec021b0bdf0ccc75c0a21b1774c'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -27,10 +20,10 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-CometChat.init(AppId).then(()=>{
-  this.document = new this.DOMParser().parseFromString("<?xml version='1.0'?>", 'text/xml');
-  CometChat.login(USER_NAME, ApiKey);
-})
+
+
+
+
 
 
 export default class App extends Component {
@@ -77,8 +70,6 @@ makeCall(){
     }
   );
 }
-
-
   render() {
     return (
       <View style={styles.container}  style={{ flex: 1 }}>      
